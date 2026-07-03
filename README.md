@@ -186,6 +186,10 @@ http://localhost:8080/SaibaPlus/public/api/categorias
 ```
 
 Se retornar um JSON com as 6 categorias, a API está funcionando corretamente.
+> O porte que eu utilizei foi 8080; o apache também deve estar nesse porte. eu mudei porquê eu não consegui parar uma conexão que já estava ativa no porte padrão 80.
+> Caso o port esteja diferente, mude o port do apache nas configurações do laragon (engrenagem no canto superior direito), vá para 'services & ports' e mude o porte do apache.
+
+> não sei se é excentricamente essencial o port ser esse, mas você pode tentar conectar em outros para ver qual funciona. o laravel também rodava no 8080 quando apresentei.
 
 ---
 
@@ -209,13 +213,18 @@ Para usar o sistema em qualquer momento após a instalação:
 
 Não é necessário repetir nenhuma etapa de instalação ou configuração.
 
+## importante: Faça o serve do laravel
+1. No laragon, clique em 'Terminal' para abrir o terminal imbutido do laragon.
+2. Quanddo o Cmder abrir e o endereço do www estiver na tela, rode `cd SaibaPlus` para entrar no diretório do back-end.
+3. Quando estiver dentro do diretório, rode `php artisan serve` para iniciar o servidor. O padrão é inicializar no porte `8000` mas você pode adicionar `--port=` no final para definir qualquer port caso precise.
+Após o último comando, o front-end conseguirá construir os cards de curso e as categorias direto do banco de dados se ele já estiver populado. 
 ---
 
 ## Solução de problemas
 
 | Sintoma | Causa provável | Solução |
 |---|---|---|
-| Página não abre | Apache não está rodando | Verificar se o Apache está verde no Laragon |
+| Página não abre | Apache não está rodando | Verificar se o Apache está ativo no Laragon |
 | API retorna erro 500 | Chave do Laravel ausente | Rodar `php artisan key:generate` no terminal |
 | API retorna erro de banco | .env mal configurado | Revisar DB_DATABASE, DB_USERNAME e DB_PASSWORD |
 | Categorias não aparecem | Tabelas não criadas ou vazias | Repetir os passos 3.3 e 3.4 |
