@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro de Aluno — SaibaPlus</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<div id="nav-root"></div>
+
+<div class="form-page">
+  <div class="container">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" style="margin-bottom:1.5rem;color:var(--gray-400)">
+      <a href="index.html" style="color:var(--indigo-500)">Início</a>
+      <span>›</span>
+      <span>Cadastro de Aluno</span>
+    </nav>
+
+    <div class="form-card">
+      <h2>Criar Conta</h2>
+      <p class="form-sub">Preencha seus dados para se cadastrar na plataforma SaibaPlus</p>
+
+      <!-- Método GET para visualização dos campos enviados -->
+      <form id="reg-form" novalidate>
+
+        <div class="form-grid">
+
+          <!-- DADOS PESSOAIS -->
+          <span class="form-section-title">👤 Dados Pessoais</span>
+
+          <div class="form-group">
+            <label for="nome">Nome completo <span>*</span></label>
+            <input class="form-control" type="text" id="nome" name="nome"
+                   placeholder="Seu nome completo" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="cpf">CPF <span>*</span></label>
+            <input class="form-control" type="text" id="cpf" name="cpf"
+                   placeholder="000.000.000-00" maxlength="14" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="nascimento">Data de Nascimento</label>
+            <input class="form-control" type="date" id="nascimento" name="nascimento"/>
+          </div>
+
+          <div class="form-group">
+            <label for="telefone">Telefone <span>*</span></label>
+            <input class="form-control" type="tel" id="telefone" name="telefone"
+                   placeholder="(00) 00000-0000" maxlength="15" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="escolaridade">Escolaridade <span>*</span></label>
+            <select class="form-control" id="escolaridade" name="escolaridade" required>
+              <option value="">Selecione...</option>
+              <option value="fund_inc">Ensino Fundamental Incompleto</option>
+              <option value="fund_comp">Ensino Fundamental Completo</option>
+              <option value="medio_inc">Ensino Médio Incompleto</option>
+              <option value="medio_comp">Ensino Médio Completo</option>
+              <option value="sup_inc">Superior Incompleto</option>
+              <option value="sup_comp">Superior Completo</option>
+              <option value="pos">Pós-graduação / MBA</option>
+              <option value="mestrado">Mestrado</option>
+              <option value="doutorado">Doutorado</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="area_interesse">Área de Interesse <span>*</span></label>
+            <select class="form-control" id="area_interesse" name="area_interesse" required>
+              <option value="">Selecione...</option>
+              <option value="programacao">Programação</option>
+              <option value="design">Design</option>
+              <option value="administracao">Administração</option>
+              <option value="idiomas">Idiomas</option>
+              <option value="marketing">Marketing Digital</option>
+              <option value="dados">Dados & IA</option>
+              <option value="outro">Outra área</option>
+            </select>
+          </div>
+
+          <!-- ACESSO -->
+          <span class="form-section-title">🔐 Dados de Acesso</span>
+
+          <div class="form-group">
+            <label for="email">E-mail <span>*</span></label>
+            <input class="form-control" type="email" id="email" name="email"
+                   placeholder="seu@email.com" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="login">Login de acesso <span>*</span></label>
+            <input class="form-control" type="text" id="login" name="login"
+                   placeholder="usuario_123" pattern="[a-z0-9_]+" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="senha">Senha <span>*</span></label>
+            <input class="form-control" type="password" id="senha" name="senha"
+                   placeholder="Mínimo 8 caracteres" minlength="8" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="confirma_senha">Confirmar Senha <span>*</span></label>
+            <input class="form-control" type="password" id="confirma_senha" name="confirma_senha"
+                   placeholder="Repita a senha" required/>
+          </div>
+
+          <!-- ENDEREÇO -->
+          <span class="form-section-title">📍 Endereço</span>
+
+          <div class="form-group full">
+            <label for="endereco">Logradouro <span>*</span></label>
+            <input class="form-control" type="text" id="endereco" name="endereco"
+                   placeholder="Rua, Avenida, número, complemento" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="bairro">Bairro</label>
+            <input class="form-control" type="text" id="bairro" name="bairro"
+                   placeholder="Nome do bairro"/>
+          </div>
+
+          <div class="form-group">
+            <label for="cidade">Cidade <span>*</span></label>
+            <input class="form-control" type="text" id="cidade" name="cidade"
+                   placeholder="Nome da cidade" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="estado">Estado <span>*</span></label>
+            <select class="form-control" id="estado" name="estado" required>
+              <option value="">UF</option>
+              <option>AC</option><option>AL</option><option>AM</option><option>AP</option>
+              <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+              <option>GO</option><option>MA</option><option>MG</option><option>MS</option>
+              <option>MT</option><option>PA</option><option>PB</option><option>PE</option>
+              <option>PI</option><option>PR</option><option>RJ</option><option>RN</option>
+              <option>RO</option><option>RR</option><option>RS</option><option>SC</option>
+              <option>SE</option><option>SP</option><option>TO</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="cep">CEP</label>
+            <input class="form-control" type="text" id="cep" name="cep"
+                   placeholder="00000-000" maxlength="9"/>
+          </div>
+
+        </div><!-- /form-grid -->
+
+        <div class="form-footer">
+          <div>
+            <p style="font-size:.8rem;color:var(--gray-400)">
+              Ao criar sua conta você concorda com nossos
+              <a href="#" style="color:var(--indigo-500)">Termos de Uso</a> e
+              <a href="#" style="color:var(--indigo-500)">Política de Privacidade</a>.
+            </p>
+          </div>
+          <button type="submit" class="btn-submit">
+            Criar minha conta →
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="footer-root"></div>
+
+<script src="/routes/js/app.js"></script>
+<script src="/routes/js/components.js"></script>
+<script>
+  document.getElementById('nav-root').innerHTML = buildNavbar();
+  document.getElementById('footer-root').innerHTML = buildFooter();
+
+  // Máscaras
+  document.getElementById('cpf').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g,'').slice(0,11);
+    v = v.replace(/(\d{3})(\d)/,'$1.$2');
+    v = v.replace(/(\d{3})(\d)/,'$1.$2');
+    v = v.replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+    this.value = v;
+  });
+
+  document.getElementById('telefone').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g,'').slice(0,11);
+    if(v.length > 10) v = v.replace(/^(\d{2})(\d{5})(\d{4})/,'($1) $2-$3');
+    else v = v.replace(/^(\d{2})(\d{4})(\d)/,'($1) $2-$3');
+    this.value = v;
+  });
+
+  document.getElementById('cep').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g,'').slice(0,8);
+    if(v.length > 5) v = v.slice(0,5)+'-'+v.slice(5);
+    this.value = v;
+  });
+
+  // Submit via API
+  document.getElementById('reg-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const senha   = document.getElementById('senha').value;
+    const confirm = document.getElementById('confirma_senha').value;
+
+    if (senha !== confirm) {
+      showToast('❌ As senhas não coincidem!', 'error'); return;
+    }
+
+    const required = this.querySelectorAll('[required]');
+    let missing = false;
+    required.forEach(f => {
+      f.style.borderColor = '';
+      if (!f.value.trim()) { f.style.borderColor = '#EF4444'; missing = true; }
+    });
+    if (missing) { showToast('❌ Preencha todos os campos obrigatórios', 'error'); return; }
+
+    const btn = this.querySelector('.btn-submit');
+    btn.textContent = 'Cadastrando...';
+    btn.disabled    = true;
+
+    const res = await apiPost('usuarios', {
+      nome:           document.getElementById('nome').value,
+      cpf:            document.getElementById('cpf').value,
+      email:          document.getElementById('email').value,
+      login:          document.getElementById('login').value,
+      senha:          senha,
+      telefone:       document.getElementById('telefone').value,
+      nascimento:     document.getElementById('nascimento').value,
+      escolaridade:   document.getElementById('escolaridade').value,
+      area_interesse: document.getElementById('area_interesse').value,
+      endereco:       document.getElementById('endereco').value,
+      bairro:         document.getElementById('bairro').value,
+      cidade:         document.getElementById('cidade').value,
+      estado:         document.getElementById('estado').value,
+      cep:            document.getElementById('cep').value,
+    });
+
+    btn.textContent = 'Criar minha conta →';
+    btn.disabled    = false;
+
+    if (res.success) {
+      showToast('✅ Conta criada! Faça login.', 'success');
+      setTimeout(() => window.location.href = 'login.html', 1200);
+    } else {
+      const msg = res.errors
+        ? Object.values(res.errors).flat().join(' ')
+        : res.message || 'Erro ao cadastrar.';
+      showToast('❌ ' + msg, 'error');
+    }
+  });
+</script>
+
+</body>
+</html>
